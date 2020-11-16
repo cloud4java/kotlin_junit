@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'eclipse'
+    id 'idea'
+}
+
+group 'com.erick'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testImplementation('org.junit.jupiter:junit-jupiter:5.5.0')
+    testImplementation('org.amshove.kluent:kluent:1.50')
+    testImplementation('io.mockk:mockk:1.9')
+
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+
+compileTestKotlin{
+    kotlinOptions.jvmTarget = "11"
+}
