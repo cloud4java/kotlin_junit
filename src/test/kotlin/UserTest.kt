@@ -18,7 +18,9 @@ class UserTest {
     fun `should be able to increase reputation`() {
         user.changeReputation(10)
 
-        user.reputation `should be` 10
+        //user.reputation `should be` 10
+
+        Assertions.assertEquals(10, user.reputation)
     }
 
     @Test
